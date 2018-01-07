@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cPager</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../src/cPager.css">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+<div id="cPager"></div>
+<script type="text/javascript" src="../lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../src/cPager.js"></script>
+<script type="text/javascript">
+
+	$.cPager.show({
+		pn : 10,
+		total : 17,
+		// showMax : 6,
+		// showFirstPage : true,	
+		// showLastPage : true,	
+		// showPrePage : true,	
+		// showNextPage : true,	
+		// showGotoPage: true
+	});
+
+</script>
+</body>
+</html>
