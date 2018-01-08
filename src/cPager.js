@@ -131,6 +131,13 @@
 			if (conf.showPrePage != undefined) this.showPrePage = conf.showPrePage;
 			if (conf.showNextPage != undefined) this.showNextPage = conf.showNextPage;
 			if (conf.showGotoPage != undefined) this.showGotoPage = conf.showGotoPage;
+			if (conf.config) {
+				if (conf.config.firstPageText) this.config.firstPageText = conf.config.firstPageText;
+				if (conf.config.lastPageText) this.config.lastPageText = conf.config.lastPageText;
+				if (conf.config.prePageText) this.config.prePageText = conf.config.prePageText;
+				if (conf.config.nextPageText) this.config.nextPageText = conf.config.nextPageText;
+				if (conf.config.gotoBtnText) this.config.gotoBtnText = conf.config.gotoBtnText;
+			}
 		},
 
 		// 页面跳转
