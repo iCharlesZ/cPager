@@ -4,7 +4,7 @@
 }
 
 #cPager {
-	width: 850px;
+	width: 900px;
 	height: 50px;
 	font-size: 14px;
 }
@@ -58,7 +58,7 @@
 	color: grey;
 }
 
-#cPager #pgInput #gotopage {
+#cPager #pgInput #gotoPage {
 	width: 30px;
 	border-radius: 3px;
 	border: 1px grey solid;
