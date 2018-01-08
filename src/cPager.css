@@ -46,7 +46,7 @@
 #cPager #pgBtndiv a.pgBtn:hover {
 	color: white;
 	background-color: #2a9ce3;
-	border: 1px #2497E3 solid;
+	border: 1px solid;
 }
 
 #cPager #pgInput {
@@ -70,6 +70,6 @@
 	color: white;
 	background-color: #2a9ce3;
 	padding: 1px 5px;
-	border: 1px #2a9ce3 solid;
+	border: 1px solid;
 	border-radius: 3px;
 }

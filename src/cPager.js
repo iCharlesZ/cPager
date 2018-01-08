@@ -9,6 +9,8 @@
 		showPrePage			: true,		//显示上一页按钮
 		showNextPage		: true,		//显示下一页按钮
 		showGotoPage		: true,		//显示跳转页面输入框和按钮
+		color				: "#2a9ce3",
+		pnName				: "page",
 		config : {
 			firstPageText	: "首页",
 			lastPageText	: "尾页",
@@ -23,7 +25,7 @@
 				this.user(conf);
 			}
 
-			this.pn = this.getPage() ? this.getPage() : this.pn;
+			if (this.getPage()) this.pn = this.getPage();
 
 			var btn_first = '', btn_pre = '', btn_next = '', btn_last = '', pgBtn = '', pgBtndiv = '', pgInput = '';
 			if (this.showFirstPage) {	//显示首页按钮
@@ -102,19 +104,28 @@
 
 			pgBtndiv += '<div id="pgBtndiv">'+ btn_first + btn_pre + pgBtn + btn_next + btn_last +'</div>';
 			$('#cPager').append(pgBtndiv);
+			var color = this.color;
+			$('#cPager').find('.pgBtn').hover(function() {
+				$(this).css("background-color", color);
+			}, function() {
+				$(this).css("background-color", "white");
+			});
 
 			if (this.showGotoPage) {
 				pgInput += '<div id="pgInput"> 共'+ this.total +'页，'+' 跳到第 <input type="text" id="gotoPage"> 页'+
 							' <button id="gotoBtn" onclick="$.cPager.gotoPage()">'+ $.cPager.config.gotoBtnText +'</button></div>';
 				$('#cPager').append(pgInput);
+				$('#gotoBtn').css("background-color", this.color);
 			}
 		},
 
 		// 用户设置
 		user: function (conf) {
-			this.pn = conf.pn ? conf.pn : this.pn;
-			this.total = conf.total ? conf.total : this.total;
-			this.showMax = conf.showMax ? conf.showMax : this.showMax;
+			if (conf.pn) this.pn = conf.pn;
+			if (conf.total) this.total = conf.total;
+			if (conf.showMax) this.showMax = conf.showMax;
+			if (conf.color) this.color = conf.color;
+			if (conf.pnName) this.pnName = conf.pnName;
 			if (conf.showFirstPage != undefined) this.showFirstPage = conf.showFirstPage;
 			if (conf.showLastPage != undefined) this.showLastPage = conf.showLastPage;
 			if (conf.showPrePage != undefined) this.showPrePage = conf.showPrePage;
@@ -135,7 +146,7 @@
 		},
 
 		getPage: function () {
-			var reg = /(^|&)pn=([^&]*)($|&)/;
+			var reg = new RegExp("(^|&)"+ this.pnName +"=([^&]*)($|&)");
 			var pn = window.location.search.substr(1).match(reg);
 			if (pn) {
 				pn = pn[2];
@@ -148,12 +159,12 @@
 		getUrl: function (pn) {
 			var localUrl = window.location.href;
 			if (localUrl.indexOf('?') == -1) {
-				localUrl += "?pn=" + pn;
+				localUrl += "?" + this.pnName + "=" + pn;
 			} else {
-				if (localUrl.indexOf('pn') == -1) {
-					localUrl += "&pn=" + pn;
+				if (localUrl.indexOf(this.pnName) == -1) {
+					localUrl += "&" + this.pnName + "=" + pn;
 				} else {
-					localUrl = localUrl.substr(0, localUrl.lastIndexOf('pn=')) + "pn=" + pn + localUrl.substr(localUrl.lastIndexOf('pn=') + this.getPage().length + 3);
+					localUrl = localUrl.substr(0, localUrl.lastIndexOf(this.pnName)) + this.pnName + "=" + pn + localUrl.substr(localUrl.lastIndexOf(this.pnName) + this.getPage().length + this.pnName.length + 1);
 				}
 			}
 			return localUrl;
