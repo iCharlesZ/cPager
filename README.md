@@ -11,9 +11,9 @@
 ```javascript
 	$.cPager.show({
 		total: 17,
-		// pn: 1,				//默认显示的页码
-		// pnName: "page",		//url中显示的key
-		// showMax: 7,			//最多显示多少页码
+		// pn: 1,		//默认显示的页码
+		// pnName: "page",	//url中显示的key
+		// showMax: 7,		//最多显示多少页码
 		// color: "#FF4400",	//显示的颜色
 		// showFirstPage: true,	//是否显示“首页”按钮
 		// showLastPage: true,	//是否显示“尾页”按钮
