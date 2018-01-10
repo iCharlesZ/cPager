@@ -1,5 +1,6 @@
 # cPager
-使用前必须先引入jQuery
+一个分页小插件，基于jQuery开发
+## 使用前必须先引入jQuery
 
 设置总页码即可使用
 ```javascript
