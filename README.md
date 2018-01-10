@@ -30,4 +30,4 @@
 	});
 ```
 
-查看demo：https://www.zhchi.me/works/cPager/
+查看demo：https://zhchi-me.github.io/cPager/demo/index.html
